@@ -1,0 +1,7 @@
+[project]
+name = "ProyectoPOO"
+version = "0.1.0"
+description = "Implementar una solución en base a la programación orientada a objetos y conectarla a una base de datos."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
