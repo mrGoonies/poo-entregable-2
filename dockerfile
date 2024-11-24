@@ -1,27 +1,16 @@
-# Use the official Python image from the Docker Hub
-FROM python:3.9-slim
+# Usa la imagen oficial de PostgreSQL
+FROM postgres:latest
 
-# Set the working directory in the container
-WORKDIR /app
+# Establece las variables de entorno necesarias para PostgreSQL
+ENV POSTGRES_USER=myuser
+ENV POSTGRES_PASSWORD=mypassword
+ENV POSTGRES_DB=mydatabase
 
-# Copy the requirements file into the container
-COPY requirements.txt .
+# Expone el puerto 5432 para que puedas conectarte a la base de datos desde fuera del contenedor
+EXPOSE 5432
 
-# Install the dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Copia un script SQL para inicializar la base de datos (opcional)
+# COPY init.sql /docker-entrypoint-initdb.d/
 
-# Copy the rest of the application code into the container
-COPY . .
-
-# Set environment variables for PostgreSQL connection
-ENV POSTGRES_DB=<your_database_name>
-ENV POSTGRES_USER=<your_database_user>
-ENV POSTGRES_PASSWORD=<your_database_password>
-ENV POSTGRES_HOST=<your_database_host>
-ENV POSTGRES_PORT=<your_database_port>
-
-# Expose the port the app runs on
-EXPOSE 8000
-
-# Command to run the application
-CMD ["python", "app.py"]
+# Comando por defecto para iniciar PostgreSQL
+CMD ["postgres"]
