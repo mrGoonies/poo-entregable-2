@@ -1,8 +1,21 @@
+@startuml
 class Crucero {
+    id: int
+    nombre: str
+    capacidad_maxima: int
+    año_fabricacion: Date
+    empresa_disponibilisa: str
+    pais_origen: str
 
+    __init__(): void
+    __str__(): void
+    modificacion_crucero(): void
+    __del__(): str
 }
 
-
-class Reporte {
-
+class Empresa {
+    nombre_empresa: str
+    
 }
+
+@enduml
