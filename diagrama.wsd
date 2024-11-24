@@ -14,8 +14,45 @@ class Crucero {
 }
 
 class Empresa {
-    nombre_empresa: str
-    
+    nombre: str
+    cantidad_flota: int
+    lista_flotas: List<Crucero>
+
+    __init__(): void
+    __str__(): void
+    info(): str 
 }
+
+abstract class "<<Usuario>>" {
+    nombre: str
+    apellido: str
+
+    __str__(): void
+}
+
+class Empleado {
+    username: str
+    pwd: str
+    empresa: str
+    creado_en: datetime
+
+    __init__(): void
+    __str__(): void
+    empleado(): void
+}
+
+class EmpresaPortuaria {
+    nombre: str
+    lista_empleados: List<Empleado>
+    lista_empresas_crucero: List<Empresa>
+    lista_cruceros: List<Crucero>
+
+    __init__(): void
+}
+
+"<<Usuario>>" *.. Empleado
+Crucero ..> Empresa
+Crucero <.. EmpresaPortuaria
+EmpresaPortuaria ..> Empleado
 
 @enduml
