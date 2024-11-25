@@ -1,0 +1,7 @@
+[project]
+name = "entrega-2"
+version = "0.1.0"
+description = "Proyecto estudiantil para la asignatura Programación Orientada a Objetos"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
